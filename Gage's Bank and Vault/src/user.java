@@ -36,23 +36,47 @@ public class user {
 		System.out.println("Customer");
 		System.out.println("Teller");
 		//input
-		int type_input = sc.nextInt();
+		int type_input_int= 0;
 		
-		switch (type_input) { 
+		do {
+			String type_input = sc.nextLine();
+			
+			if (type_input.equalsIgnoreCase("Admin")) {
+				type_input_int = 1;
+			} else if (type_input.equalsIgnoreCase("Customer")) {
+				type_input_int = 2;
+			} else if (type_input.equalsIgnoreCase("Teller")) {
+				type_input_int = 3;
+			} else {
+				System.out.println("Try Again");
+			}
+
+		} while (type_input_int == 0);
+		
+		
+		switch (type_input_int) { 
         case 1: 
             account_type = 1; 
+            System.out.println("User Type was set to Admin");
             break; 
         case 2: 
         	account_type = 2; 
+        	System.out.println("User Type was set to Customer");
             break; 
         case 3: 
         	account_type = 3; 
+        	System.out.println("User Type was set to Teller");
             break; 
         default: 
             System.out.println("Invalid Input"); 
             break; 
         } 
-        System.out.println("Account type Set!"); 
-    } 
-
+    }
+	
+	public void display_User() {
+		System.out.printf("User Information:\n"
+				       +  "First Name: %s "
+				       +  "Last Name: %s"
+				       +  "User Type: %d", user_first_name,user_last_name,account_type);
+	}
 }
