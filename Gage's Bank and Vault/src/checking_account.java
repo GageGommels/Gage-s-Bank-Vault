@@ -1,4 +1,4 @@
 
-public class checking {
+public class checking_account {
 
 }
