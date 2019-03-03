@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class bank {
 
+	ArrayList<user> uAryLst = new ArrayList<user>(0); 
 	static Scanner sc = new Scanner(System.in);
 	static int terminate = 0;
 
@@ -23,15 +25,17 @@ public class bank {
 
 	public static void select() {
 
-		int bank_input = sc.nextInt();
+		int bank_input = Integer.parseInt(sc.nextLine());
 
 		switch (bank_input) {
 
 		case 1:
 			user new_user = new user();
+			System.out.println("");
 			
 			System.out.printf("Cool you want to create a user! What will be the users first name?: ");
-			new_user.set_user_first_name(sc.nextLine());
+			String name_Input = sc.nextLine();
+			new_user.set_user_first_name(name_Input);
 			System.out.println("");
 			
 			System.out.printf("What will be the users Last name?: ");
@@ -47,7 +51,7 @@ public class bank {
 			terminate = 1;
 			break;
 		case 4:
-			new_user.display_User();
+			//new_user.display_User();
 			break;
 
 		}
